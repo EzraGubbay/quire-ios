@@ -1,0 +1,14 @@
+# Secrets — never commit
+*.p12
+*.mobileprovision
+*.cer
+AuthKey_*.p8
+GoogleService-Info.plist
+
+# Xcode
+build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+.swiftpm/
+.DS_Store

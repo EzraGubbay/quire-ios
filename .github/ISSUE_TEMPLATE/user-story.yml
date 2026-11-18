@@ -1,0 +1,63 @@
+name: User story
+description: A PR-sized unit of work — 1 story = 1 PR = 1 implementer. Attach it to its epic as a sub-issue.
+title: "[QMOB-E?-S?] "
+type: Task
+labels: ["story", "needs-spec"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: One or two sentences. What changes for the user or the system?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: 2–4 checkable statements, one per line, as "- [ ] ...". Say which tests are written first.
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks (TDD order — tests first)
+      value: |
+        1. Define the unit tests first and commit them red:
+        2. Implement the minimum that makes them pass.
+        3. Refactor; run the verification command.
+        4. Draft PR into dev-rc with "Closes #<n>", every criterion ticked.
+  - type: input
+    id: verify
+    attributes:
+      label: Verification
+      description: The command (in backticks) that proves the story is done.
+      placeholder: '`xcodebuild test -scheme Quire -destination platform=iOS Simulator,name=iPhone 16`'
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where to work
+      description: Files or packages to touch — at least one code path.
+      placeholder: '`Quire/Features/...`'
+    validations:
+      required: true
+  - type: textarea
+    id: out
+    attributes:
+      label: Out of scope
+      description: What must not change or be built in this story.
+    validations:
+      required: true
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      description: 'Written into the issue as "Size: S". L is not allowed — split the story.'
+      options: ["XS", "S", "M"]
+    validations:
+      required: true
